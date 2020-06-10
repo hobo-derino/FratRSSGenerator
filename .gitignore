@@ -1780,3 +1780,4 @@ vendor/vinelab/rss/tests/XMLTest.php
 vendor/vinelab/rss/tests/feeds/invalid.xml
 vendor/vinelab/rss/tests/feeds/xxx.xml
 .vscode/launch.json
+feed.xml
