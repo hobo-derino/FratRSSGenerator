@@ -22,7 +22,7 @@
         'https://anchor.fm/s/13450afc/podcast/rss'
     ];
 
-    $title = '(DEMO FEED) The FRAT House: Beer-battered Liberty Podcasts';
+    $title = 'The FRAT House: Beer-battered Liberty Podcasts';
     $link = 'http://frathousepodcasts.com';
     $author = 'The FRAT House';
     $email = 'frathousepodcasts@gmail.com';
