@@ -5,6 +5,7 @@
     use iTunesPodcastFeed\FeedGenerator;
     use iTunesPodcastFeed\Item;
     
+    // TODO - fetch this crap from a WordPress content endpoint and manage these links in WP
     $feeds = [
         'http://burningboots.libsyn.com/rss',
         'https://www.thedailyliberator.com/feed/podcast/',
@@ -47,12 +48,15 @@
     $episodes = array();
     $rss = new SimplePie();
 
+    //Loop through each of the feed endpoints
     foreach($feeds as $feed){
         $rss->set_feed_url($feed);
         $rss->enable_cache(false);
         $success = $rss->init();
         $rss->handle_content_type('text/plain');
+        // If it's valid
         if ($success){
+            // Loop through each episode and push to a master list of $episodes
             $items = $rss->get_items();
             foreach($items as &$episode){
                 $item = new stdClass();
@@ -71,10 +75,12 @@
 
     $feedItems = array();
 
+    // Sort all of the $episodes by release date descending
     usort($episodes, function($a, $b){
         return $a->date < $b->date ? 1 : -1;
     });
 
+    // Loop each episode and add it to $feedItems with standard iTunes Generator properties
     foreach ($episodes as $episode){
         if($episode->fileUrl){
             $item = new Item(
@@ -91,10 +97,12 @@
         }
     }    
 
+    // Generate the new XML feed
     $feed = new FeedGenerator($channel, ...$feedItems);
 
-    header('Content-Type: application/xml; charset=utf-8');
+    // header('Content-Type: application/xml; charset=utf-8');
 
+    // Write to a file which will be displayed with index.php
     $file = fopen("feed.xml", "w");
     fwrite($file, $feed->getXml());
     fclose($file);
