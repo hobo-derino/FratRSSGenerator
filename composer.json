@@ -1,0 +1,11 @@
+{
+    "require": {
+        "dg/rss-php": "^1.4",
+        "johnstyle/aggregator": "^1.0",
+        "forensic/feed-parser": "^1.1",
+        "read2me-online/itunes-podcast-feed-php": "^1.0",
+        "james-heinrich/getid3": "^1.9",
+        "vinelab/rss": "^1.0",
+        "simplepie/simplepie": "^1.5"
+    }
+}
