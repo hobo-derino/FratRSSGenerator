@@ -47,8 +47,6 @@
     $episodes = array();
     $rss = new SimplePie();
 
-    var_dump()
-
     foreach($feeds as $feed){
         $rss->set_feed_url($feed);
         $rss->enable_cache(false);
