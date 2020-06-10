@@ -26,7 +26,7 @@
     $link = 'http://frathousepodcasts.com';
     $author = 'The FRAT House';
     $email = 'frathousepodcasts@gmail.com';
-    $image = 'https://i.imgur.com/mbVuuEQ.png';
+    $image = 'http://frathousepodcasts.com/wp-content/uploads/2020/06/FRATHouseLogo.png';
     $explicit = true;
     $categories = [
         'News',
